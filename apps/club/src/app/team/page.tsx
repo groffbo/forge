@@ -49,7 +49,7 @@ function BouncingImage() {
         src="https://media.tenor.com/ypaZorGIZyMAAAAM/bonk.gif"
         alt="cat being gently bonked by a hammer"
       />
-      <div className="text-3xl font-bold">LANDING PAGE</div>
+      <div className="text-3xl font-bold">TEAM PAGE</div>
     </div>
   );
 }
