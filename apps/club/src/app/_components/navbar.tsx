@@ -22,9 +22,9 @@ const links = [
 export function Navbar() {
   const { scrollY }: { scrollY: MotionValue<number> } = useScroll();
   const [hidden, setHidden] = useState(false);
+
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
-
     if (previous && latest > previous && latest > 100) {
       setHidden(true);
     } else {
@@ -38,16 +38,12 @@ export function Navbar() {
         animate={{ y: hidden ? "-100%" : 0 }}
         transition={{ type: "tween", duration: 0.2 }}
         className={cn(
-          "fixed z-50 flex h-16 w-full items-center justify-between overflow-hidden bg-violet-950 px-2 md:px-4",
+          "fixed z-50 flex h-16 w-full items-center overflow-hidden px-2 md:px-4",
+          "bg-violet-950/20 backdrop-blur-md",
         )}
       >
         <div className="hidden h-full items-center justify-center py-2 hover:cursor-pointer md:flex">
-          <Link
-            href="/"
-            passHref
-            legacyBehavior
-            className="hover:cursor-pointer"
-          >
+          <Link href="/" passHref legacyBehavior>
             <Image
               src="/logos/kh-banner-white.svg"
               alt="kh-logo"
@@ -57,8 +53,10 @@ export function Navbar() {
             />
           </Link>
         </div>
+
         <MobileSheet links={links} />
-        <div className="hidden md:flex">
+
+        <div className="hidden flex-grow justify-center md:flex">
           <ul className="flex items-center space-x-4">
             {links.map((link) => (
               <li key={link.name}>
@@ -69,13 +67,16 @@ export function Navbar() {
                 </Link>
               </li>
             ))}
-            <Button
-              className="rounded-xl bg-violet-800 text-xl text-white"
-              size={"lg"}
-            >
-              Sign In
-            </Button>
           </ul>
+        </div>
+
+        <div>
+          <Button
+            className="hidden rounded-xl bg-violet-800 text-xl text-white md:flex"
+            size="lg"
+          >
+            Sign In
+          </Button>
         </div>
       </motion.nav>
     </>

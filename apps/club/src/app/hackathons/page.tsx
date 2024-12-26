@@ -55,5 +55,5 @@ function BouncingImage() {
 }
 
 export default function HomePage() {
-  return <p> hackathons page</p>;
+  return <BouncingImage />;
 }

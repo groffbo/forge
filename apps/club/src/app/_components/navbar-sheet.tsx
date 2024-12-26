@@ -56,8 +56,12 @@ export default function MobileSheet({
             ))}
           </ul>
           <SheetFooter>
-            {" "}
-            <Button size={"lg"}>Sign In</Button>
+            <Button
+              className="rounded-xl bg-violet-800 text-xl text-white"
+              size={"lg"}
+            >
+              Sign In
+            </Button>
           </SheetFooter>
         </SheetContent>
       </Sheet>
