@@ -81,16 +81,22 @@ export const eventRouter = {
       // Step 2: Insert the event into the Google Calendar
       let googleEventId;
       try {
-        const response = await calendar.events.insert({
-          calendarId: GOOGLE_CALENDAR_ID,
+        interface CalendarEvent {
+          data: {
+            id: string;
+          };
+        }
+
+        const response = (await calendar.events.insert({
+          calendarId: GOOGLE_CALENDAR_ID as string,
           requestBody: {
             end: {
-              dateTime: endIsoTimestamp,
-              timeZone: CALENDAR_TIME_ZONE,
+              dateTime: input.end_datetime,
+              timeZone: "America/New_York",
             },
             start: {
-              dateTime: startIsoTimestamp,
-              timeZone: CALENDAR_TIME_ZONE,
+              dateTime: input.start_datetime,
+              timeZone: "America/New_York",
             },
             description: input.description,
             summary: formattedName,
@@ -131,11 +137,6 @@ export const eventRouter = {
         });
       }
 
-      console.log("GOOGLE CALENDAR EVENT ID", googleEventId);
-      console.log("DISCORD EVENT ID", discordEventId);
-      console.log("DISCORD GUILD", KNIGHTHACKS_GUILD_ID);
-      console.log("GOOGLE CALENDAR", GOOGLE_CALENDAR_ID);
-
       try {
         await db.insert(Event).values({
           ...input,
@@ -158,7 +159,7 @@ export const eventRouter = {
         // Clean up the event in Google Calendar if the database insert fails
         try {
           await calendar.events.delete({
-            calendarId: GOOGLE_CALENDAR_ID,
+            calendarId: GOOGLE_CALENDAR_ID as string,
             eventId: googleEventId,
           });
         } catch (error) {
