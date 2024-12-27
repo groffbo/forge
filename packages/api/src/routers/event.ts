@@ -3,7 +3,6 @@ import type { APIExternalGuildScheduledEvent } from "discord-api-types/v10";
 import type { calendar_v3 } from "googleapis";
 import { TRPCError } from "@trpc/server";
 import { Routes } from "discord-api-types/v10";
-import type { calendar_v3 } from "googleapis";
 
 import {
   CALENDAR_TIME_ZONE,
