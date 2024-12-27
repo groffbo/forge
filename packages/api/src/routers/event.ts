@@ -3,6 +3,7 @@ import type { APIExternalGuildScheduledEvent } from "discord-api-types/v10";
 import type { calendar_v3 } from "googleapis";
 import { TRPCError } from "@trpc/server";
 import { Routes } from "discord-api-types/v10";
+import { calendar_v3 } from "googleapis";
 
 import {
   CALENDAR_TIME_ZONE,
@@ -81,21 +82,15 @@ export const eventRouter = {
       // Step 2: Insert the event into the Google Calendar
       let googleEventId;
       try {
-        interface CalendarEvent {
-          data: {
-            id: string;
-          };
-        }
-
-        const response = (await calendar.events.insert({
+        const response = await calendar.events.insert({
           calendarId: GOOGLE_CALENDAR_ID as string,
           requestBody: {
             end: {
-              dateTime: input.end_datetime,
+              dateTime: endIsoTimestamp,
               timeZone: "America/New_York",
             },
             start: {
-              dateTime: input.start_datetime,
+              dateTime: startIsoTimestamp,
               timeZone: "America/New_York",
             },
             description: input.description,
