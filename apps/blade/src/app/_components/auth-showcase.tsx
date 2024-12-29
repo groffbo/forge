@@ -1,8 +1,23 @@
 import { auth, signIn, signOut } from "@forge/auth";
 import { Button } from "@forge/ui/button";
 
+import { api } from "~/trpc/server";
+import TestConnection from "../../../../../packages/api/src/minio/minio-client";
+
 export async function AuthShowcase() {
   const session = await auth();
+
+  const generateQRCode = async () => {
+    await api.qr.createQRCode();
+  };
+
+  const isMember = async () => {
+    const member = await api.member.getMember();
+
+    if (!member) {
+      await api.qr.generateQRCodeAndUpload();
+    }
+  };
 
   if (!session) {
     return (
@@ -36,6 +51,9 @@ export async function AuthShowcase() {
         >
           Sign out
         </Button>
+        {generateQRCode()}
+        {TestConnection()}
+        {isMember()}
       </form>
     </div>
   );
