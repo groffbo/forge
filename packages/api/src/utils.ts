@@ -41,7 +41,6 @@ export const isDiscordAdmin = async (user: Session["user"]) => {
 const GOOGLE_PRIVATE_KEY = Buffer.from(env.GOOGLE_PRIVATE_KEY_B64, "base64")
   .toString("utf-8")
   .replace(/\\n/g, "\n");
-console.log(GOOGLE_PRIVATE_KEY);
 
 const auth = new google.auth.JWT(
   env.GOOGLE_CLIENT_EMAIL,
