@@ -65,10 +65,6 @@ export const GOOGLE_PERSONIFY_EMAIL = "dylan@knighthacks.org";
 
 export const USE_CAUTION = true;
 
-export const GOOGLE_PERSONIFY_EMAIL = "dylan@knighthacks.org";
-
-export const USE_CAUTION = true;
-
 export const GENDERS = [
   "Man",
   "Woman",
