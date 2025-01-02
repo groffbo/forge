@@ -2,7 +2,6 @@ import { auth, signIn, signOut } from "@forge/auth";
 import { Button } from "@forge/ui/button";
 
 import { api } from "~/trpc/server";
-import TestConnection from "../../../../../packages/api/src/minio/minio-client";
 
 export async function AuthShowcase() {
   const session = await auth();
@@ -52,7 +51,6 @@ export async function AuthShowcase() {
           Sign out
         </Button>
         {generateQRCode()}
-        {TestConnection()}
         {isMember()}
       </form>
     </div>
