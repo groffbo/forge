@@ -1,6 +1,6 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { minioClient } from "../minio/minio-client";
-
+import { env } from "../env";
 import QRCode from "qrcode";
 import { protectedProcedure } from "../trpc";
 
@@ -31,7 +31,7 @@ export const qrRouter = {
                 "Content-Type": "image/png",
             });
 
-            const qrCodeUrl = `minio-g0soogg4gs8gwcggw4ococok.knighthacks.org/${bucketName}/${objectName}}`;
+            const qrCodeUrl = `${env.MINIO_S3_URL}/${bucketName}/${objectName}}`;
             // const signedUrl = await minioClient.presignedGetObject(bucketName, objectName, 60 * 60);
             console.log("QR Code upload SUCCESS!");
             // console.log("Signed URL: ", signedUrl);
