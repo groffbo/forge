@@ -64,7 +64,7 @@ const auth = new google.auth.JWT(
   env.GOOGLE_CLIENT_EMAIL,
   undefined,
   GOOGLE_PRIVATE_KEY,
-  ["https://www.googleapis.com/auth/calendar"],
+  ["https://www.googleapis.com/auth/calendar", "https://www.googleapis.com/auth/gmail.send"],
   GOOGLE_PERSONIFY_EMAIL as string,
 );
 
