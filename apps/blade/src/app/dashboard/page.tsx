@@ -16,9 +16,10 @@ export const metadata: Metadata = {
 export default async function Dashboard() {
   const session = await auth();
   const isMember = await api.auth.getDiscordMemberStatus();
-  const sendGmail = await api.email.sendEmail({to: "lwbobda@gmail.com", subject: "Test", body: "Test"});
-
-  console.log("sendGmail", sendGmail);
+  
+  // email test
+  // commented out because it will send an email every time the page is loaded
+  // const sendGmail = await api.email.sendEmail({to: "test@email.com", subject: "Test", body: "This is a test email"});
 
   if (!session) {
     redirect("/");
