@@ -1,6 +1,6 @@
-import { TRPCRouterRecord } from "@trpc/server";
+import type { TRPCRouterRecord } from "@trpc/server";
 import { gmail } from "../utils";
-import { protectedProcedure, publicProcedure } from "../trpc";
+import { publicProcedure } from "../trpc";
 import { z } from "zod";
 
 export const emailRouter = {
@@ -11,11 +11,7 @@ export const emailRouter = {
         body: z.string().min(1),
     }))
     .mutation(async ({ input }) => {
-        console.log("Sending email... 1");
-
         try {
-            console.log("Sending email... 2");
-
             // write email
             const rawMessage = [
                 `To: ${input.to}`,
@@ -34,14 +30,12 @@ export const emailRouter = {
                 .replace(/=+$/, ''); 
             
             // send email
-            console.log("Sending email... 3");
             const response = await gmail.users.messages.send({
                 userId: "me",
                 requestBody: {
                     raw: encodedMessage,
                 },
             });
-            console.log("Sending email... 4 - Success");
             
             return { success: true, messageId: response.data.id };
                                  
