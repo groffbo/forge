@@ -60,11 +60,14 @@ const GOOGLE_PRIVATE_KEY = Buffer.from(env.GOOGLE_PRIVATE_KEY_B64, "base64")
   .toString("utf-8")
   .replace(/\\n/g, "\n");
 
+const gapiCalendar = "https://www.googleapis.com/auth/calendar";
+const gapiGmail = "https://www.googleapis.com/auth/gmail.send";
+
 const auth = new google.auth.JWT(
   env.GOOGLE_CLIENT_EMAIL,
   undefined,
   GOOGLE_PRIVATE_KEY,
-  ["https://www.googleapis.com/auth/calendar", "https://www.googleapis.com/auth/gmail.send"],
+  [gapiCalendar, gapiGmail],
   GOOGLE_PERSONIFY_EMAIL as string,
 );
 
