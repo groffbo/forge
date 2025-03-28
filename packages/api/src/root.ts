@@ -1,5 +1,6 @@
 import { authRouter } from "./routers/auth";
 import { duesPaymentRouter } from "./routers/dues-payment";
+import { emailRouter } from "./routers/email";
 import { eventRouter } from "./routers/event";
 import { eventFeedbackRouter } from "./routers/event-feedback";
 import { hackathonRouter } from "./routers/hackathon";
@@ -8,7 +9,6 @@ import { memberRouter } from "./routers/member";
 import { qrRouter } from "./routers/qr";
 import { resumeRouter } from "./routers/resume";
 import { userRouter } from "./routers/user";
-import { emailRouter } from "./routers/email";
 import { createTRPCRouter } from "./trpc";
 
 export const appRouter = createTRPCRouter<{
