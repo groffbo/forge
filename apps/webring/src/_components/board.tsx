@@ -43,7 +43,7 @@ export default function Board({
 
       <div className="diagonal-stripes flex items-center justify-center bg-black text-sm text-white">
         <a
-          href="https://github.com/knighthacks/forge"
+          href="https://github.com/KnightHacks/forge/blob/main/apps/webring/README.md"
           target="_blank"
           rel="noopener noreferrer"
           className="flex justify-end"
