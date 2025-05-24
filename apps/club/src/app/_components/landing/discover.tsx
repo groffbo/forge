@@ -5,11 +5,11 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
 import { PERMANENT_DISCORD_INVITE } from "@forge/consts/knight-hacks";
-
 import Counter from "./discover-assets/counter";
 import CoolButton2 from "./assets/coolbutton2";
+import NeonTkSVG from "./assets/neon-tk";
+
 
 export default function Discover({ memberCount }: { memberCount: number }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -78,6 +78,7 @@ export default function Discover({ memberCount }: { memberCount: number }) {
       ref={containerRef}
       className="relative flex h-screen flex-col items-center justify-center overflow-hidden px-4 bg-gradient-to-b from-[#1b112b] via-[#331d52] to-[#4c1d95]"
     >
+      <NeonTkSVG className="animate-float absolute top-20 left-20 hidden w-[250px] text-purple-500 opacity-50 md:block" />
       <div className="z-10 flex flex-col items-center space-y-6 text-center">
         <div className="flex flex-col items-center space-y-4">
           <div ref={counterRef} className="flex items-baseline gap-3">

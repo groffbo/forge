@@ -126,3 +126,20 @@ input[type="checkbox"].custom-checkbox:checked::after {
 .moving-border {
   animation: moving-border 4s linear infinite;
 }
+
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 2s ease-in-out infinite;
+}
