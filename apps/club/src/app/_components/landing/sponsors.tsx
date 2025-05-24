@@ -32,11 +32,10 @@ export default function Sponsors() {
     >
       <h2
         ref={headerRef}
-        className="mb-32 text-center font-pragati text-3xl font-bold md:pb-16 text-white drop-shadow-glow md:text-5xl"
+        className="font-pragati pb-16 md:pb-32 text-2xl font-bold leading-tight tracking-tight text-white [text-shadow:0px_0px_40px_#6B21A8,0px_0px_20px_#6B21A8,0px_0px_10px_#6B21A8] md:text-5xl lg:text-6xl"
       >
-        Trusted by top companies
+        Previously Sponsored By
       </h2>
-
       <div
         ref={sponsorContainerRef}
         className="flex flex-wrap justify-center gap-6 px-4"

@@ -4,6 +4,8 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import NeonTkSVG from "./assets/neon-tk";
+import SwordSVG from "./assets/sword";
 
 import Expandable from "./impact-assets/expandable";
 
@@ -60,10 +62,12 @@ export default function Impact() {
   return (
     <div
       ref={containerRef}
-      className="flex h-screen min-h-screen flex-col items-center justify-center"
+      className="relative flex h-screen min-h-screen flex-col items-center justify-center"
     >
+      <NeonTkSVG className="animate-float absolute bottom-[-151px] left-[-40px] hidden w-[300px] text-purple-400 opacity-50 md:block" />
+      <SwordSVG className="animate-float absolute bottom-[-70px] right-20 hidden w-[300px] text-purple-500 opacity-50 md:block" />
       <div ref={headerRef} className="mb-3 flex items-center justify-center md:space-x-4">
-        <p className="font-pragati mr-3 text-xl font-bold tracking-wide text-white/80 md:text-3xl">
+        <p className="font-pragati mr-3 text-xl font-bold tracking-wide text-white [text-shadow:0px_0px_40px_#6B21A8,0px_0px_20px_#6B21A8,0px_0px_10px_#6B21A8] md:text-3xl">
           How we make an
         </p>
         <h1

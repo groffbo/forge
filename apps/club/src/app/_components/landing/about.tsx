@@ -2,6 +2,7 @@
 
 import NeonTkSVG from "./assets/neon-tk";
 import SwordSVG from "./assets/sword";
+import TerminalSVG from "./assets/terminal";
 
 export default function About() {
   return (
@@ -13,7 +14,7 @@ export default function About() {
 
         <div className="relative">
           <p className="font-poppins px-4 text-lg font-semibold leading-relaxed tracking-wide text-white/80 md:px-12 md:text-2xl">
-            Knight Hacks is the largest Software Development and only Hackathon
+            <span className="bg-gradient-to-r from-purple-800 via-purple-300 to-white bg-clip-text font-black text-transparent">Knight Hacks</span> is the largest Software Development and only Hackathon
             organization at the University of Central Florida. Our mission is to
             serve the technologist community of Florida by running various
             workshops to sharpen technical skills, socials to help foster a
@@ -26,8 +27,11 @@ export default function About() {
         </div>
       </div>
 
-      <SwordSVG className="absolute -bottom-20 -right-1 hidden h-auto w-full max-w-[400px] transform text-purple-400 opacity-50 md:block" />
-      <NeonTkSVG className="absolute left-10 top-16 hidden h-[200px] w-full max-w-[400px] transform text-purple-400 opacity-50 md:block" />
+      <SwordSVG className="animate-float absolute -bottom-20 right-20 hidden h-auto w-full max-w-[400px] text-purple-400 opacity-50 md:block" />
+      <NeonTkSVG className="animate-float absolute left-10 top-16 hidden h-[200px] w-full max-w-[400px] text-purple-400 opacity-50 md:block" />
+      <TerminalSVG className="animate-float absolute -bottom-48 left-[-60px] hidden h-auto w-full max-w-[500px] text-purple-800 opacity-40 md:block" />
+
+
     </div>
   );
 }

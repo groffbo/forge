@@ -11,6 +11,9 @@ import type { ReturnEvent } from "@forge/db/schemas/knight-hacks";
 
 import { formatDateRange } from "~/lib/utils";
 import TerminalSVG from "./assets/terminal";
+import SwordSVG from "./assets/sword";
+import NeonTkSVG from "./assets/neon-tk";
+
 
 import "rsuite/Calendar/styles/index.css";
 
@@ -160,7 +163,10 @@ export default function CalendarEventsPage({
           )}
         </div>
       </div>
-      <TerminalSVG className="absolute -top-80 right-24 z-0 hidden h-auto w-full max-w-[400px] transform opacity-70 md:block" />
+      <TerminalSVG className="animate-float absolute -top-80 right-12 z-0 hidden h-auto w-full max-w-[400px] transform opacity-70 md:block" />
+      <SwordSVG className="animate-float absolute -bottom-72 left-0 hidden w-[500px] text-purple-400 opacity-50 md:block" />
+      <NeonTkSVG className="animate-float absolute -bottom-32 right-24 hidden w-[400px] text-purple-500 opacity-50 md:block" />
+
     </section>
   );
 }
