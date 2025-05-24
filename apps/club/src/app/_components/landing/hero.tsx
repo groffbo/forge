@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
-
+import Link from "next/link";
 import HeroSVG from "./hero-assets/hero-icon";
 import TypingText from "./hero-assets/typing-text";
+import CoolButton from "./assets/coolbutton";
 
-const Hero = ({ bladeUrl }: { bladeUrl: string }) => {
+const Hero = ({bladeUrl  }: { bladeUrl: string }) => {
   return (
     <section className="relative min-h-screen px-4 py-12">
       <div className="mx-auto max-w-6xl">
@@ -19,17 +20,14 @@ const Hero = ({ bladeUrl }: { bladeUrl: string }) => {
               className="mb-8 text-xl text-gray-300 md:text-xl"
               repeat={false}
             />
-            <button
-              onClick={() =>
-                window.open(bladeUrl, "_blank", "noopener,noreferrer")
-              }
-              className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-purple-600 to-purple-950 px-6 py-3 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95"
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 transition-opacity duration-300 group-hover:opacity-20"></span>
-              <span className="relative z-10 flex items-center gap-2 font-semibold">
-                Get Started
-              </span>
-            </button>
+            <div className="relative z-0 mt-8 flex max-w-max cursor-pointer items-center overflow-hidden rounded-lg p-[3px]">
+              <div className="moving-border absolute inset-0 h-full w-full rounded-lg bg-[conic-gradient(from_0deg,#9722b6_20deg,#8b5cf6_140deg,transparent_240deg)]" />
+              <div className="relative z-10">
+                <Link href={bladeUrl}>
+                  <CoolButton label="Get Started" />
+                </Link>
+              </div>
+            </div>
           </div>
           <div className="order-1 lg:order-2">
             <div className="relative">

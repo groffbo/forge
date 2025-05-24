@@ -9,7 +9,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { PERMANENT_DISCORD_INVITE } from "@forge/consts/knight-hacks";
 
 import Counter from "./discover-assets/counter";
-import DiscoverButton from "./discover-assets/discover-button";
+import CoolButton2 from "./assets/coolbutton2";
 
 export default function Discover({ memberCount }: { memberCount: number }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -96,18 +96,24 @@ export default function Discover({ memberCount }: { memberCount: number }) {
             Your Journey Begins Here
           </p>
         </div>
-        <div ref={buttonRef}>
-          <DiscoverButton
-            text="Join the Community!"
-            className="w-[300px] transform transition-all duration-300 hover:scale-105 hover:shadow-xl md:w-[450px]"
-            onClick={() =>
-              window.open(
-                PERMANENT_DISCORD_INVITE as string,
-                "_blank",
-                "noopener,noreferrer",
-              )
-            }
-          />
+        <div
+          ref={buttonRef}
+          className="relative z-0 flex max-w-max items-center overflow-hidden rounded-full p-[3px]"
+        >
+          <div className="moving-border absolute inset-0 h-full w-full rounded-full bg-[conic-gradient(from_0deg,#9722b6_20deg,#8b5cf6_140deg,transparent_240deg)]" />
+          <div className="relative z-10 flex items-center">
+            <CoolButton2
+              label="Join the Community!"
+              className="w-[300px] md:w-[450px] flex items-center justify-center"
+              onClick={() =>
+                window.open(
+                  PERMANENT_DISCORD_INVITE as string,
+                  "_blank",
+                  "noopener,noreferrer"
+                )
+              }
+            />
+          </div>
         </div>
       </div>
 
