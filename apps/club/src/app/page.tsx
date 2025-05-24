@@ -14,13 +14,28 @@ export default async function HomePage() {
   ]);
 
   return (
-    <div className="bg-[#0F172A]">
-      <Hero bladeUrl={env.BLADE_URL} />
-      <About />
-      <Impact />
-      <Sponsors />
-      <CalendarPage events={events} />
-      <Discover memberCount={memberCount} />
-    </div>
+    <main className="relative z-10 text-white">
+      <div className="bg-gradient-to-b from-purple-900 to-[#1d1a2e]">
+        <Hero bladeUrl={env.BLADE_URL} />
+      </div>
+      <div className="bg-gradient-to-b from-[#1d1a2e] to-[#24162e] md:pb-64 -mt-1 pt-1">
+        <About />
+      </div>
+      <div className="bg-gradient-to-b from-[#24162e] via-[#1c182b] to-[#12101c] -mt-1 pt-1">
+        <Impact />
+      </div>
+      <div className="bg-gradient-to-b from-[#12101c] via-[#1d1530] to-[#281a37] -mt-1 pt-1">
+        <Sponsors />
+      </div>
+      <div className="bg-gradient-to-b from-[#281a37] via-[#2a1c3c] to-[#1b112b] -mt-1 pt-1">
+        <CalendarPage events={events} />
+      </div>
+      <div className="bg-gradient-to-b from-[#1b112b] via-[#331d52] to-[#4c1d95] -mt-1 pt-1">
+        <Discover memberCount={memberCount} />
+      </div>
+    </main>
+
+
+
   );
 }

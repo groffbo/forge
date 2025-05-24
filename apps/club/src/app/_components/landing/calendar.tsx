@@ -113,12 +113,12 @@ export default function CalendarEventsPage({
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen bg-gradient-to-b from-purple-800 to-[#0F172A] px-4 py-12"
+      className="relative min-h-screen px-4 py-12"
     >
       <div className="mx-auto max-w-6xl">
         <h1
           ref={headerRef}
-          className="font-pragati text-center text-[20px] font-bold leading-[102px] tracking-[0.05em] text-white [text-shadow:0px_0px_281.064px_#6B21A8,0px_0px_160.608px_#6B21A8,0px_0px_93.688px_#6B21A8,0px_0px_46.844px_#6B21A8,0px_0px_13.384px_#6B21A8,0px_0px_6.692px_#6B21A8] md:text-[45px]"
+          className="font-pragati text-center text-[20px] font-bold pb-32 leading-[102px] tracking-[0.05em] text-white [text-shadow:0px_0px_281.064px_#6B21A8,0px_0px_160.608px_#6B21A8,0px_0px_93.688px_#6B21A8,0px_0px_46.844px_#6B21A8,0px_0px_13.384px_#6B21A8,0px_0px_6.692px_#6B21A8] md:text-[45px]"
         >
           Stay up to date!
         </h1>

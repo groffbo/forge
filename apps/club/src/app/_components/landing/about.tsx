@@ -5,11 +5,9 @@ import SwordSVG from "./assets/sword";
 
 export default function About() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-b from-[#0F172A] via-[#1a0b2e] to-[#1a0b2e]">
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 opacity-50 blur-3xl"></div>
-
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden">
       <div className="relative z-10 mx-auto w-full max-w-4xl text-center">
-        <h1 className="font-pragati mb-6 text-2xl font-bold leading-tight tracking-tight text-white [text-shadow:0px_0px_40px_#6B21A8,0px_0px_20px_#6B21A8,0px_0px_10px_#6B21A8] md:text-5xl lg:text-6xl">
+        <h1 className="font-pragati mb-16 text-2xl font-bold leading-tight tracking-tight text-white [text-shadow:0px_0px_40px_#6B21A8,0px_0px_20px_#6B21A8,0px_0px_10px_#6B21A8] md:text-5xl lg:text-6xl">
           ABOUT US
         </h1>
 
