@@ -40,11 +40,7 @@ export default function Discover({ memberCount }: { memberCount: number }) {
       },
     });
 
-    tl.fromTo(
-      container,
-      { backgroundColor: "rgba(15, 23, 42, 0)" }, // Changed color to match #0F172A
-      { backgroundColor: "rgba(15, 23, 42, 1)", duration: 1 },
-    )
+    tl
       .fromTo(
         group,
         { opacity: 0, y: 50 },
@@ -80,7 +76,7 @@ export default function Discover({ memberCount }: { memberCount: number }) {
   return (
     <div
       ref={containerRef}
-      className="relative flex h-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#0F172A] via-purple-900 to-purple-950 px-4"
+      className="relative flex h-screen flex-col items-center justify-center overflow-hidden px-4 bg-gradient-to-b from-[#1b112b] via-[#331d52] to-[#4c1d95]"
     >
       <div className="z-10 flex flex-col items-center space-y-6 text-center">
         <div className="flex flex-col items-center space-y-4">
@@ -95,7 +91,7 @@ export default function Discover({ memberCount }: { memberCount: number }) {
           </div>
           <p
             ref={textRef}
-            className="font-pragati max-w-2xl text-[28px] font-bold tracking-wide text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] md:text-[48px]"
+            className="font-pragati max-w-2xl pb-16 text-[28px] font-bold tracking-wide text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] md:text-[48px]"
           >
             Your Journey Begins Here
           </p>

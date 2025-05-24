@@ -20,6 +20,7 @@ interface ExpandableProps {
 
 const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
   return (
+    
     <div
       className={cn(
         "relative flex h-40 w-full cursor-pointer overflow-hidden rounded-md transition-all delay-0 duration-300 ease-in-out md:h-full md:w-20",
@@ -93,8 +94,8 @@ export default function Expandable({
   return (
     <div
       className={cn(
-        "flex h-auto w-full flex-col items-center gap-2 md:h-full md:flex-row",
-        className,
+        "flex h-auto w-full flex-col items-center gap-2 mt-10 md:h-full md:flex-row",
+        className
       )}
     >
       {list.map((item, index) => (

@@ -60,9 +60,9 @@ export default function Impact() {
   return (
     <div
       ref={containerRef}
-      className="flex h-screen min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#1a0b2e] via-[#120624] to-[#0F172A]"
+      className="flex h-screen min-h-screen flex-col items-center justify-center"
     >
-      <div ref={headerRef} className="mb-3 flex items-center justify-center">
+      <div ref={headerRef} className="mb-3 flex items-center justify-center md:space-x-4">
         <p className="font-pragati mr-3 text-xl font-bold tracking-wide text-white/80 md:text-3xl">
           How we make an
         </p>
@@ -75,7 +75,7 @@ export default function Impact() {
       </div>
       <div
         ref={expandableRef}
-        className="flex h-[600px] w-full items-center justify-center md:w-2/3"
+        className="flex h-[600px] xl:h-[700px] md:mt-32 w-full items-center justify-center md:w-2/3"
       >
         <Expandable autoPlay={inView} />
       </div>
