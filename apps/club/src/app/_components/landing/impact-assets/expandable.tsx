@@ -20,31 +20,31 @@ interface ExpandableProps {
 
 const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
   return (
-    
     <div
       className={cn(
-        "relative flex h-40 w-full cursor-pointer overflow-hidden rounded-md transition-all delay-0 duration-300 ease-in-out md:h-full md:w-20",
+        "relative flex h-40 w-full cursor-pointer overflow-hidden rounded-md transition-[flex-grow] duration-300 ease-in-out md:h-full md:w-20",
         {
           "flex-grow": index === activeItem,
         },
         className,
       )}
+      style={{ willChange: "flex-grow" }}
       {...props}
     >
       <Image
         src={item.image}
         alt={item.title}
-        height={0}
-        width={0}
+        width={800}
+        height={600}
         className={cn("h-full w-full object-cover", {
           "blur-[2px]": index !== activeItem,
         })}
       />
       {index === activeItem && (
-        <div className="absolute bottom-2 left-2 rounded-lg bg-gradient-to-r from-purple-900 to-[#0F172A] py-1 text-xs sm:bottom-4 sm:left-4 md:h-auto md:text-lg">
+        <div className="absolute bottom-4 left-4 z-10 rounded-xl bg-[#281a37]/80 px-4 py-2 backdrop-blur-xs shadow-md md:bottom-6 md:left-6">
           <WaveReveal
             duration="1000ms"
-            className="font-pragati bg-clip-text text-[20px] font-bold leading-tight text-white md:mb-2 md:items-start md:justify-start md:text-center md:text-[60px]"
+            className="font-pragati text-xl font-bold tracking-tight text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] md:text-4xl"
             text={item.title}
             direction="up"
           />
@@ -60,12 +60,20 @@ const items = [
     title: "Hackathons",
   },
   {
-    image: "/jeff.png",
+    image: "/workshops2.jpg",
     title: "Workshops",
   },
   {
-    image: "/members.JPG",
-    title: "Leadership",
+    image: "/projects1.JPG",
+    title: "Projects",
+  },
+  {
+    image: "/workshops.JPG",
+    title: "Mentorship",
+  },
+  {
+    image: "/community.jpg",
+    title: "Community",
   },
 ];
 
@@ -86,7 +94,7 @@ export default function Expandable({
       if (!isHovering) {
         setActiveItem((prev) => (prev + 1) % list.length);
       }
-    }, 6000); // Slower autoplay for better mobile UX
+    }, 6000);
 
     return () => clearInterval(interval);
   }, [autoPlay, list.length, isHovering]);
