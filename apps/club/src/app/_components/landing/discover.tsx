@@ -5,11 +5,12 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 import { PERMANENT_DISCORD_INVITE } from "@forge/consts/knight-hacks";
-import Counter from "./discover-assets/counter";
+
 import CoolButton2 from "./assets/coolbutton2";
 import NeonTkSVG from "./assets/neon-tk";
-
+import Counter from "./discover-assets/counter";
 
 export default function Discover({ memberCount }: { memberCount: number }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -40,13 +41,12 @@ export default function Discover({ memberCount }: { memberCount: number }) {
       },
     });
 
-    tl
-      .fromTo(
-        group,
-        { opacity: 0, y: 50 },
-        { opacity: 100, y: 0, duration: 1 },
-        0.2,
-      )
+    tl.fromTo(
+      group,
+      { opacity: 0, y: 50 },
+      { opacity: 100, y: 0, duration: 1 },
+      0.2,
+    )
       .fromTo(
         counter,
         { opacity: 0, y: 50 },
@@ -76,9 +76,9 @@ export default function Discover({ memberCount }: { memberCount: number }) {
   return (
     <div
       ref={containerRef}
-      className="relative flex h-screen flex-col items-center justify-center overflow-hidden px-4 bg-gradient-to-b from-[#1b112b] via-[#331d52] to-[#4c1d95]"
+      className="relative flex h-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#1b112b] via-[#331d52] to-[#4c1d95] px-4"
     >
-      <NeonTkSVG className="animate-float absolute top-20 left-20 hidden w-[250px] text-purple-500 opacity-50 md:block" />
+      <NeonTkSVG className="animate-float absolute left-20 top-20 hidden w-[250px] text-purple-500 opacity-50 md:block" />
       <div className="z-10 flex flex-col items-center space-y-6 text-center">
         <div className="flex flex-col items-center space-y-4">
           <div ref={counterRef} className="flex items-baseline gap-3">
@@ -105,12 +105,12 @@ export default function Discover({ memberCount }: { memberCount: number }) {
           <div className="relative z-10 flex items-center">
             <CoolButton2
               label="Join the Community!"
-              className="w-[300px] md:w-[450px] flex items-center justify-center"
+              className="flex w-[300px] items-center justify-center md:w-[450px]"
               onClick={() =>
                 window.open(
                   PERMANENT_DISCORD_INVITE as string,
                   "_blank",
-                  "noopener,noreferrer"
+                  "noopener,noreferrer",
                 )
               }
             />

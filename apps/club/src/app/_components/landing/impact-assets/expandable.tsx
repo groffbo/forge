@@ -26,9 +26,9 @@ const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
       className={cn(
         "relative h-40 cursor-pointer overflow-hidden rounded-md transition-all duration-300 ease-in-out md:h-full",
         isActive
-          ? "w-full md:w-[720px] z-10 scale-100"
-          : "w-full md:w-32 scale-95 opacity-70 blur-[1px]",
-        className
+          ? "z-10 w-full scale-100 md:w-[720px]"
+          : "w-full scale-95 opacity-70 blur-[1px] md:w-32",
+        className,
       )}
       style={{ willChange: "transform, width, opacity" }}
       {...props}
@@ -43,7 +43,7 @@ const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
         className="h-full w-full object-cover transition-all duration-300 ease-in-out"
       />
       {isActive && (
-        <div className="absolute bottom-4 left-4 z-10 rounded-xl bg-[#281a37]/80 px-4 py-2 backdrop-blur-xs shadow-md md:bottom-6 md:left-6">
+        <div className="backdrop-blur-xs absolute bottom-4 left-4 z-10 rounded-xl bg-[#281a37]/80 px-4 py-2 shadow-md md:bottom-6 md:left-6">
           <WaveReveal
             duration="1000ms"
             className="font-pragati text-xl font-bold tracking-tight text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] md:text-4xl"
@@ -104,8 +104,8 @@ export default function Expandable({
   return (
     <div
       className={cn(
-        "flex h-auto w-full flex-col items-center gap-2 mt-10 md:h-full md:flex-row justify-center",
-        className
+        "mt-10 flex h-auto w-full flex-col items-center justify-center gap-2 md:h-full md:flex-row",
+        className,
       )}
     >
       {list.map((item, index) => (

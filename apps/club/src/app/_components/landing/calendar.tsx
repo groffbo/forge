@@ -6,13 +6,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Calendar, List } from "rsuite";
 
-import type { ReturnEvent } from "@forge/db/schemas/knight-hacks";
 import type { RouterOutputs } from "@forge/api";
+import type { ReturnEvent } from "@forge/db/schemas/knight-hacks";
 
 import { formatDateRange } from "~/lib/utils";
-import TerminalSVG from "./assets/terminal";
-import SwordSVG from "./assets/sword";
 import NeonTkSVG from "./assets/neon-tk";
+import SwordSVG from "./assets/sword";
+import TerminalSVG from "./assets/terminal";
 
 import "rsuite/Calendar/styles/index.css";
 
@@ -49,11 +49,11 @@ export default function CalendarEventsPage({
     tl.fromTo(
       headerRef.current,
       { opacity: 0, x: -50 },
-      { opacity: 1, x: 0, duration: 1 }
+      { opacity: 1, x: 0, duration: 1 },
     ).fromTo(
       calendarRef.current,
       { opacity: 0, y: 100 },
-      { opacity: 1, y: 0, duration: 2, ease: "elastic.out" }
+      { opacity: 1, y: 0, duration: 2, ease: "elastic.out" },
     );
   });
   function getTodoList(date: Date | null) {
@@ -104,12 +104,12 @@ export default function CalendarEventsPage({
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen px-4 py-12 overflow-hidden"
+      className="relative min-h-screen overflow-hidden px-4 py-12"
     >
       <div className="mx-auto max-w-6xl">
         <h1
           ref={headerRef}
-          className="font-pragati text-center text-[20px] font-bold pb-32 leading-[102px] tracking-[0.05em] text-white [text-shadow:0px_0px_281.064px_#6B21A8,0px_0px_160.608px_#6B21A8,0px_0px_93.688px_#6B21A8,0px_0px_46.844px_#6B21A8,0px_0px_13.384px_#6B21A8,0px_0px_6.692px_#6B21A8] md:text-[45px]"
+          className="font-pragati pb-32 text-center text-[20px] font-bold leading-[102px] tracking-[0.05em] text-white [text-shadow:0px_0px_281.064px_#6B21A8,0px_0px_160.608px_#6B21A8,0px_0px_93.688px_#6B21A8,0px_0px_46.844px_#6B21A8,0px_0px_13.384px_#6B21A8,0px_0px_6.692px_#6B21A8] md:text-[45px]"
         >
           Stay up to date!
         </h1>
@@ -120,7 +120,9 @@ export default function CalendarEventsPage({
         >
           <div
             className={`text-center lg:text-left ${
-              selectedDate ? "order-2 lg:order-1" : "order-1 flex justify-center"
+              selectedDate
+                ? "order-2 lg:order-1"
+                : "order-1 flex justify-center"
             }`}
           >
             <div
@@ -131,29 +133,7 @@ export default function CalendarEventsPage({
                 compact
                 renderCell={renderCell}
                 onSelect={handleSelect}
-                className="
-                  w-full text-white
-                  [text-shadow:0px_0px_281.064px_#6B21A8,0px_0px_160.608px_#6B21A8,0px_0px_93.688px_#6B21A8,0px_0px_46.844px_#6B21A8,0px_0px_13.384px_#6B21A8,0px_0px_6.692px_#6B21A8]
-                  [&_.rs-calendar-table-cell-content]:transition
-                  [&_.rs-calendar-table-cell-content]:duration-150
-                  [&_.rs-calendar-table-cell-content]:rounded-md
-                  [&_.rs-calendar-table-cell-content]:border-none
-                  [&_.rs-calendar-table-cell-content]:shadow-none
-                  [&_.rs-calendar-table-cell-content:hover]:bg-[#1E293B]/70
-                  [&_.rs-calendar-table-cell-content:hover]:text-purple-300
-                  [&_.rs-calendar-table-cell-content:hover]:border-none
-                  [&_.rs-calendar-table-cell-content:hover]:shadow-none
-                  [&_.rs-calendar-table-cell-content:focus]:outline-none
-                  [&_.rs-calendar-table-cell-content:focus]:ring-0
-                  [&_.rs-calendar-table-cell-content:focus]:shadow-none
-                  [&_.rs-calendar-table-cell-content:focus]:border-none
-                  [&_.rs-calendar-table-cell-selected]:!bg-purple-900
-                  [&_.rs-calendar-table-cell-selected]:!text-white
-                  [&_.rs-calendar-table-cell-selected]:!border-none
-                  [&_.rs-calendar-table-cell-selected_.rs-calendar-table-cell-content]:shadow-none
-                  [&_.rs-calendar-table-cell-today]:text-purple-400
-                  [&_.rs-calendar-table-cell-content:has([data-event-marker])]:text-yellow-400
-                "
+                className="w-full text-white [text-shadow:0px_0px_281.064px_#6B21A8,0px_0px_160.608px_#6B21A8,0px_0px_93.688px_#6B21A8,0px_0px_46.844px_#6B21A8,0px_0px_13.384px_#6B21A8,0px_0px_6.692px_#6B21A8] [&_.rs-calendar-table-cell-content:focus]:border-none [&_.rs-calendar-table-cell-content:focus]:shadow-none [&_.rs-calendar-table-cell-content:focus]:outline-none [&_.rs-calendar-table-cell-content:focus]:ring-0 [&_.rs-calendar-table-cell-content:has([data-event-marker])]:text-yellow-400 [&_.rs-calendar-table-cell-content:hover]:border-none [&_.rs-calendar-table-cell-content:hover]:bg-[#1E293B]/70 [&_.rs-calendar-table-cell-content:hover]:text-purple-300 [&_.rs-calendar-table-cell-content:hover]:shadow-none [&_.rs-calendar-table-cell-content]:rounded-md [&_.rs-calendar-table-cell-content]:border-none [&_.rs-calendar-table-cell-content]:shadow-none [&_.rs-calendar-table-cell-content]:transition [&_.rs-calendar-table-cell-content]:duration-150 [&_.rs-calendar-table-cell-selected]:!border-none [&_.rs-calendar-table-cell-selected]:!bg-purple-900 [&_.rs-calendar-table-cell-selected]:!text-white [&_.rs-calendar-table-cell-selected_.rs-calendar-table-cell-content]:shadow-none [&_.rs-calendar-table-cell-today]:text-purple-400"
                 monthDropdownProps={{
                   itemClassName:
                     "bg-[#1E293B]/50 text-white hover:bg-[#334155] cursor-pointer p-2 rounded-md transition-colors",
