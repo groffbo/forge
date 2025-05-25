@@ -19,16 +19,18 @@ interface ExpandableProps {
 }
 
 const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
+  const isActive = index === activeItem;
+
   return (
     <div
       className={cn(
-        "relative flex h-40 w-full cursor-pointer overflow-hidden rounded-md transition-[flex-grow] duration-300 ease-in-out md:h-full md:w-20",
-        {
-          "flex-grow": index === activeItem,
-        },
-        className,
+        "relative h-40 cursor-pointer overflow-hidden rounded-md transition-all duration-300 ease-in-out md:h-full",
+        isActive
+          ? "w-full md:w-[720px] z-10 scale-100"
+          : "w-full md:w-32 scale-95 opacity-70 blur-[1px]",
+        className
       )}
-      style={{ willChange: "flex-grow" }}
+      style={{ willChange: "transform, width, opacity" }}
       {...props}
     >
       <Image
@@ -36,11 +38,11 @@ const List = ({ item, className, index, activeItem, ...props }: ImageProps) => {
         alt={item.title}
         width={800}
         height={600}
-        className={cn("h-full w-full object-cover", {
-          "blur-[2px]": index !== activeItem,
-        })}
+        loading={isActive ? "eager" : "lazy"}
+        priority={isActive}
+        className="h-full w-full object-cover transition-all duration-300 ease-in-out"
       />
-      {index === activeItem && (
+      {isActive && (
         <div className="absolute bottom-4 left-4 z-10 rounded-xl bg-[#281a37]/80 px-4 py-2 backdrop-blur-xs shadow-md md:bottom-6 md:left-6">
           <WaveReveal
             duration="1000ms"
@@ -102,7 +104,7 @@ export default function Expandable({
   return (
     <div
       className={cn(
-        "flex h-auto w-full flex-col items-center gap-2 mt-10 md:h-full md:flex-row",
+        "flex h-auto w-full flex-col items-center gap-2 mt-10 md:h-full md:flex-row justify-center",
         className
       )}
     >
