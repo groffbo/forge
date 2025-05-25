@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 import NeonTkSVG from "./assets/neon-tk";
 import SwordSVG from "./assets/sword";
 import TerminalSVG from "./assets/terminal";
@@ -27,12 +28,12 @@ export default function About() {
     tl.fromTo(
       headerRef.current,
       { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1.0, ease: "power2.out" }
+      { opacity: 1, y: 0, duration: 1.0, ease: "power2.out" },
     ).fromTo(
       textRef.current,
       { opacity: 0, y: 50 },
       { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
-      "-=0.5"
+      "-=0.5",
     );
   }, []);
 

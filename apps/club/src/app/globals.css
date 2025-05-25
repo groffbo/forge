@@ -113,7 +113,6 @@ input[type="checkbox"].custom-checkbox:checked::after {
   );
 }
 
-
 @keyframes moving-border {
   0% {
     transform: rotate(0deg) scale(10);
@@ -126,7 +125,6 @@ input[type="checkbox"].custom-checkbox:checked::after {
 .moving-border {
   animation: moving-border 4s linear infinite;
 }
-
 
 @keyframes float {
   0% {
@@ -173,5 +171,3 @@ input[type="checkbox"].custom-checkbox:checked::after {
 .animate-fade-up {
   animation: fade-up 0.8s ease-out forwards;
 }
-
-
