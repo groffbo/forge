@@ -79,7 +79,7 @@ export default function Impact() {
       </div>
       <div
         ref={expandableRef}
-        className="flex h-[600px] xl:h-[700px] md:mt-32 w-full items-center justify-center md:w-2/3"
+        className="flex h-[600px]  xl:h-[700px] mt-32 mb-32 w-full items-center justify-center md:w-2/3"
       >
         <Expandable autoPlay={inView} />
       </div>
