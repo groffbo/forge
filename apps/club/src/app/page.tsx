@@ -30,7 +30,7 @@ export default async function HomePage() {
       <div className="bg-gradient-to-b from-[#281a37] via-[#2a1c3c] to-[#1b112b] md:pb-64 -mt-1 pt-1">
         <CalendarPage events={events} />
       </div>
-      <div className="bg-gradient-to-b from-[#1b112b]  to-[#4c1d95] -mt-1 pt-1">
+      <div className="bg-gradient-to-b from-[#1b112b] to-[#4c1d95]">
         <Discover memberCount={memberCount} />
       </div>
     </main>

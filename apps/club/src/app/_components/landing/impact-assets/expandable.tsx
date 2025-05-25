@@ -74,7 +74,7 @@ const items = [
     title: "Mentorship",
   },
   {
-    image: "/community.jpg",
+    image: "/community.png",
     title: "Community",
   },
 ];
