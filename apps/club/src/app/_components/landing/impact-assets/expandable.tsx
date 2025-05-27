@@ -70,7 +70,7 @@ const items = [
     title: "Projects",
   },
   {
-    image: "/workshops.JPG",
+    image: "/workshops.jpg",
     title: "Mentorship",
   },
   {
