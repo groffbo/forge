@@ -536,12 +536,12 @@ export function HackerFormPage() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>
-                Why do you want to attend GemiKnights?{" "}
+                Why do you want to attend Knight Hacks?{" "}
                 <span className="text-destructive">*</span>
               </FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Why do you want to attend GeminiKnight?"
+                  placeholder="Why do you want to attend KnightHacks?"
                   {...field}
                   value={field.value}
                 />
@@ -556,7 +556,7 @@ export function HackerFormPage() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>
-                What do you hope to achieve at GemiKnights?{" "}
+                What do you hope to achieve at Knight Hacks?{" "}
                 <span className="text-destructive">*</span>
               </FormLabel>
               <FormControl>
