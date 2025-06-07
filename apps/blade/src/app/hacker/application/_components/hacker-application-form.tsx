@@ -541,7 +541,7 @@ export function HackerFormPage() {
               </FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Why do you want to attend GeminiKnight?"
+                  placeholder="Why do you want to attend this hack-a-day?"
                   {...field}
                   value={field.value}
                 />
@@ -561,7 +561,7 @@ export function HackerFormPage() {
               </FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="What are your goals at this hackathon?"
+                  placeholder="What are your goals at this hack-a-day?"
                   {...field}
                   value={field.value}
                 />
