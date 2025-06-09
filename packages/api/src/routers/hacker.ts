@@ -52,7 +52,7 @@ export const hackerRouter = {
     return await db.query.Hacker.findMany();
   }),
 
-  createHacker: adminProcedure
+  createHacker: protectedProcedure
     .input(
       InsertHackerSchema.omit({
         userId: true,
