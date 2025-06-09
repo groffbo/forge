@@ -407,31 +407,6 @@ export function MemberProfileForm({
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="resumeUpload"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>
-                  Resume
-                  <span className="text-gray-400">
-                    {" "}
-                    &mdash; <i>Optional</i>
-                  </span>
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    type="file"
-                    placeholder=""
-                    {...resumeRef}
-                    onChange={(event) => {
-                      field.onChange(event.target.files?.[0] ?? undefined);
-                    }}
-                  />
-                </FormControl>
-              </FormItem>
-            )}
-          />
 
           <div className="!mt-10">
             <h3 className="text-lg font-medium">Demographic Information</h3>
@@ -755,13 +730,7 @@ export function MemberProfileForm({
             name="githubProfileUrl"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
-                  GitHub Profile
-                  <span className="text-gray-400">
-                    {" "}
-                    &mdash; <i>Optional</i>
-                  </span>
-                </FormLabel>
+                <FormLabel>GitHub Profile</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="https://github.com/knighthacks"
@@ -777,13 +746,7 @@ export function MemberProfileForm({
             name="linkedinProfileUrl"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
-                  Linkedin Profile
-                  <span className="text-gray-400">
-                    {" "}
-                    &mdash; <i>Optional</i>
-                  </span>
-                </FormLabel>
+                <FormLabel>Linkedin Profile</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="https://www.linkedin.com/company/knight-hacks"
@@ -799,13 +762,7 @@ export function MemberProfileForm({
             name="websiteUrl"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
-                  Personal Website
-                  <span className="text-gray-400">
-                    {" "}
-                    &mdash; <i>Optional</i>
-                  </span>
-                </FormLabel>
+                <FormLabel>Personal Website</FormLabel>
                 <FormControl>
                   <Input placeholder="https://knighthacks.org" {...field} />
                 </FormControl>
