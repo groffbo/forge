@@ -52,7 +52,7 @@ const GemiKnightsAcceptanceEmail = ({ name }: AcceptanceEmailProps) => (
               <br />
               <span className="font-medium">Location:</span> University of
               Central Florida — Business Administration&nbsp;I&nbsp;(BA1)
-              rooms&nbsp;1‑7
+              rooms&nbsp;107
             </Text>
 
             <Section className="mt-8 text-center">
