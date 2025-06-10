@@ -8,7 +8,7 @@ import Navbar from "./_components/navbar/Navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gemiknights.knighthacks.org"),
+  metadataBase: new URL("https://gemi.knighthacks.org"),
   title: "GemiKnights",
   description:
     "GemiKnights is a 12-hour mini-Hackathon held by Knight Hacks at the University of Central Florida. Join us on June 28th for a day of building, learning, and innovation with AI!",
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     title: "GemiKnights",
     description:
       "GemiKnights is a 12-hour mini-Hackathon held by Knight Hacks at the University of Central Florida. Join us on June 28th for a day of building, learning, and innovation with AI!",
-    url: "https://gemiknights.knighthacks.org",
+    url: "https://gemi.knighthacks.org",
     siteName: "GemiKnights",
     images: [
       {
-        url: "https://gemiknights.knighthacks.org/event-banner.png",
+        url: "https://gemi.knighthacks.org/event-banner.png",
         alt: "Event Banner",
       },
     ],
