@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "~/styles/globals.css";
 import Footer from "./_components/footer/footer";
 import Navbar from "./_components/navbar/Navbar";
@@ -34,7 +34,11 @@ export const metadata: Metadata = {
       },
     ],
   },
-  themeColor: "#d83434",
+  themeColor: "#c84c3c",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#c84c3c",
 };
 
 export default function RootLayout({
