@@ -361,18 +361,18 @@ export default function Faq() {
         </div>
 
         {/* FAQ Content */}
-        <div className="w-full px-2 py-4">
+        <div className="w-full px-4 py-4 sm:px-2">
           <div className="mx-auto max-w-4xl">
             <div className="md:h-[900px] lg:h-[1000px]">
               <Accordion
                 type="single"
                 collapsible
-                className="w-full space-y-3 sm:space-y-4"
+                className="w-full space-y-0"
               >
                 {filteredFaqData.map((faq) => (
                   <div 
                     key={faq.id} 
-                    className="stagger-item animate-pop-out"
+                    className="stagger-item animate-pop-out mb-4"
                   >
                     <FaqCard {...faq} />
                   </div>
@@ -391,17 +391,17 @@ function FaqCard({ id, question, answer, links }: FaqItem) {
   return (
     <AccordionItem
       value={id}
-      className="group relative overflow-hidden rounded-none border-0"
+      className="group relative overflow-hidden rounded-none border-0 mb-0"
     >
       {/* front face */}
       <div className="relative rounded-none bg-[#F7F0C6] outline-2 -outline-offset-3 outline-black transition-all duration-200 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-1">
-        <AccordionTrigger className="tk-ccmeanwhile flex w-full items-center justify-between px-3 py-2 text-left text-sm text-slate-800 transition-all duration-300 ease-in-out hover:no-underline sm:px-4 sm:py-3 sm:text-base md:px-6 md:py-4 md:text-lg lg:px-8 lg:py-5 [&[data-state=open]>svg]:rotate-180">
-          <span className="flex-1 pr-4">{question}</span>
+        <AccordionTrigger className="tk-ccmeanwhile flex w-full items-center justify-between px-4 py-4 text-left text-base text-slate-800 transition-all duration-300 ease-in-out hover:no-underline sm:px-4 sm:py-3 sm:text-base md:px-6 md:py-4 md:text-lg lg:px-8 lg:py-5 [&[data-state=open]>svg]:rotate-180">
+          <span className="flex-1 pr-3 leading-normal">{question}</span>
           <ChevronDownIcon className="h-4 w-4 shrink-0 text-slate-600 transition-transform duration-300 ease-in-out" />
         </AccordionTrigger>
 
         <AccordionContent className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm transition-all duration-300 ease-in-out">
-          <div className="tk-ccmeanwhile px-3 pt-1 pb-2 text-xs leading-relaxed text-slate-700 sm:px-4 sm:pt-2 sm:pb-3 sm:text-sm md:px-6 md:pb-4 md:text-base lg:px-8 lg:pb-6">
+          <div className="tk-ccmeanwhile px-4 pt-2 pb-4 text-sm leading-relaxed text-slate-700 sm:px-4 sm:pt-2 sm:pb-3 sm:text-sm md:px-6 md:pb-4 md:text-base lg:px-8 lg:pb-6">
             {links ? (
               <>
                 {/* Handle the special Hacker's Guide + Discord case */}
