@@ -323,7 +323,7 @@ export default function Faq() {
       <section
         id="faqs"
         ref={faqRef}
-        className="relative z-10 mt-0 pt-0  min-h-[1200px] pb-0 sm:mt-40 sm:pt-0 sm:pb-20 sm:mb-0 sm:min-h-0 w-[90%] flex-col items-center md:pb-32 lg:pb-36 xl:pb-40"
+        className="relative z-10 mt-0 pt-0 min-h-[1200px] pb-0 sm:mt-40 sm:pt-0 sm:pb-20 sm:mb-0 sm:min-h-0 w-[90%] flex flex-col items-center md:pb-32 lg:pb-36 xl:pb-40 isolate"
       >
         <div className="relative z-10  flex w-full items-center justify-center mb-6 md:mb-10 lg:mb-12">
           <div className="relative flex w-full items-center justify-center sm:w-[95%] md:w-[75%] lg:w-[70%] xl:w-[65%] stagger-item animate-pop-out">
@@ -361,9 +361,9 @@ export default function Faq() {
         </div>
 
         {/* FAQ Content */}
-        <div className="w-full px-4 py-4 sm:px-2">
+        <div className="w-full px-4 py-4 sm:px-2 flex-1">
           <div className="mx-auto max-w-4xl">
-            <div className="md:h-[900px] lg:h-[1000px]">
+            <div className="h-[600px] md:h-[900px] lg:h-[1000px] overflow-y-auto">
               <Accordion
                 type="single"
                 collapsible
@@ -401,7 +401,7 @@ function FaqCard({ id, question, answer, links }: FaqItem) {
         </AccordionTrigger>
 
         <AccordionContent className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm transition-all duration-300 ease-in-out">
-          <div className="tk-ccmeanwhile px-4 pt-2 pb-4 text-sm leading-relaxed text-slate-700 sm:px-4 sm:pt-2 sm:pb-3 sm:text-sm md:px-6 md:pb-4 md:text-base lg:px-8 lg:pb-6">
+          <div className="tk-ccmeanwhile px-4 pt-2 pb-4 text-sm leading-relaxed text-slate-700 sm:px-4 sm:pt-2 sm:pb-3 sm:text-sm md:px-6 md:pb-4 md:text-base lg:px-8 lg:pb-6 transform-gpu">
             {links ? (
               <>
                 {/* Handle the special Hacker's Guide + Discord case */}
