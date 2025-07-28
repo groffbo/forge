@@ -323,7 +323,7 @@ export default function Faq() {
       <section
         id="faqs"
         ref={faqRef}
-        className="relative z-10 mt-0 pt-0 min-h-[1200px] pb-0 sm:mt-40 sm:pt-0 sm:pb-20 sm:mb-0 sm:min-h-0 w-[90%] flex flex-col items-center md:pb-32 lg:pb-36 xl:pb-40 isolate"
+        className="relative z-10 mt-0 pt-0 pb-16 sm:mt-40 sm:pt-0 sm:pb-20 w-[90%] flex flex-col items-center md:pb-32 lg:pb-36 xl:pb-40 isolate"
       >
         <div className="relative z-10  flex w-full items-center justify-center mb-6 md:mb-10 lg:mb-12">
           <div className="relative flex w-full items-center justify-center sm:w-[95%] md:w-[75%] lg:w-[70%] xl:w-[65%] stagger-item animate-pop-out">
@@ -361,18 +361,19 @@ export default function Faq() {
         </div>
 
         {/* FAQ Content */}
-        <div className="w-full px-4 py-4 sm:px-2 flex-1">
+        <div className="w-full px-4 py-4 sm:px-2">
           <div className="mx-auto max-w-4xl">
-            <div className="h-[600px] md:h-[900px] lg:h-[1000px] overflow-y-auto">
+            {/* Fixed height container to prevent background shifting */}
+            <div className="min-h-[1000px] sm:min-h-[1100px] md:min-h-[1200px] lg:min-h-[1300px]">
               <Accordion
                 type="single"
                 collapsible
-                className="w-full space-y-0"
+                className="w-full space-y-4"
               >
                 {filteredFaqData.map((faq) => (
                   <div 
                     key={faq.id} 
-                    className="stagger-item animate-pop-out mb-4"
+                    className="stagger-item animate-pop-out"
                   >
                     <FaqCard {...faq} />
                   </div>
@@ -391,7 +392,7 @@ function FaqCard({ id, question, answer, links }: FaqItem) {
   return (
     <AccordionItem
       value={id}
-      className="group relative overflow-hidden rounded-none border-0 mb-0"
+      className="group relative overflow-hidden rounded-none border-0"
     >
       {/* front face */}
       <div className="relative rounded-none bg-[#F7F0C6] outline-2 -outline-offset-3 outline-black transition-all duration-200 ease-in-out group-hover:-translate-x-1 group-hover:-translate-y-1">
@@ -401,7 +402,7 @@ function FaqCard({ id, question, answer, links }: FaqItem) {
         </AccordionTrigger>
 
         <AccordionContent className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm transition-all duration-300 ease-in-out">
-          <div className="tk-ccmeanwhile px-4 pt-2 pb-4 text-sm leading-relaxed text-slate-700 sm:px-4 sm:pt-2 sm:pb-3 sm:text-sm md:px-6 md:pb-4 md:text-base lg:px-8 lg:pb-6 transform-gpu">
+          <div className="tk-ccmeanwhile px-4 pt-2 pb-4 text-sm leading-relaxed text-slate-700 sm:px-4 sm:pt-2 sm:pb-3 sm:text-sm md:px-6 md:pb-4 md:text-base lg:px-8 lg:pb-6">
             {links ? (
               <>
                 {/* Handle the special Hacker's Guide + Discord case */}
