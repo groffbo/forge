@@ -163,6 +163,7 @@ export const EVENT_TAGS = [
   "Workshop",
   "OPS",
   "Hackathon",
+  "Hackathon Check-in",
 ] as const;
 
 export const EVENT_FEEDBACK_HEARD = [
@@ -193,6 +194,7 @@ export const EVENT_POINTS: Record<EventTag, number> = {
   Workshop: 25,
   OPS: 20,
   Hackathon: 1,
+  "Hackathon Check-in": 1,
 } as const;
 
 export const KNIGHTHACKS_S3_BUCKET_REGION = "us-east-1";

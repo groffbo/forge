@@ -43,7 +43,9 @@ export function QRCodePopup() {
       </DialogTrigger>
       <DialogContent className="!max-h-[96vw] !max-w-[96vw] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Your QR Code</DialogTitle>
+          <DialogTitle>
+            Your <span className="font-bold text-primary">MEMBER</span> QR Code
+          </DialogTitle>
         </DialogHeader>
         <div className="flex items-center justify-center p-6">
           <div className="rounded-lg bg-white p-4">{getQR()}</div>
