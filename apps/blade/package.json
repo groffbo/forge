@@ -55,6 +55,7 @@
     "@forge/prettier-config": "workspace:*",
     "@forge/tailwind-config": "workspace:*",
     "@forge/tsconfig": "workspace:*",
+    "@playwright/test": "^1.55.0",
     "@types/node": "^20.16.11",
     "@types/react": "catalog:react18",
     "@types/react-dom": "catalog:react18",
