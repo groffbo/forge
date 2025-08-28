@@ -11,7 +11,7 @@ export async function UserInterface() {
     api.hacker.getHacker({}),
   ]);
 
-  const currentHackathon = await api.hackathon.getCurrentHackathon()
+  const currentHackathon = await api.hackathon.getCurrentHackathon();
 
   if (member.status === "rejected" || hacker.status === "rejected") {
     return (
@@ -37,7 +37,7 @@ export async function UserInterface() {
     );
   }
 
-  if (member.value && (!currentHackathon)) {
+  if (member.value && !currentHackathon) {
     return (
       <div className="flex justify-center">
         <div className="max-w-8xl w-full">
@@ -48,36 +48,39 @@ export async function UserInterface() {
   }
 
   //if (member.value && hacker.value) {
-    return (
-      <div className="flex justify-center">
-        <Tabs defaultValue={!member.value ? "Hacker" : "Member"} className="max-w-8xl relative w-full">
-          <div className="flex justify-center pb-8">
-            <TabsList className="grid w-full max-w-4xl grid-cols-2">
-              <TabsTrigger
-                value="Member"
-                className="data-[state=active]:bg-primary data-[state=active]:text-white"
-              >
-                {`${!member.value ? "Become a " : ""}Member`}
-              </TabsTrigger>
-              <TabsTrigger
-                value="Hacker"
-                className="data-[state=active]:bg-primary data-[state=active]:text-white"
-              >
-                {currentHackathon ? currentHackathon.displayName : "Hacker"}
-              </TabsTrigger>
-            </TabsList>
-          </div>
-          <TabsContent value="Member" className="mt-4 w-full">
-            <MemberDashboard member={member.value} />
-          </TabsContent>
-          <TabsContent value="Hacker" className="mt-4 w-full">
-            <HackerDashboard hacker={hacker.value} />
-          </TabsContent>
-        </Tabs>
-      </div>
-    );
- // }
-/*
+  return (
+    <div className="flex justify-center">
+      <Tabs
+        defaultValue={!member.value ? "Hacker" : "Member"}
+        className="max-w-8xl relative w-full"
+      >
+        <div className="flex justify-center pb-8">
+          <TabsList className="grid w-full max-w-4xl grid-cols-2">
+            <TabsTrigger
+              value="Member"
+              className="data-[state=active]:bg-primary data-[state=active]:text-white"
+            >
+              {`${!member.value ? "Become a " : ""}Member`}
+            </TabsTrigger>
+            <TabsTrigger
+              value="Hacker"
+              className="data-[state=active]:bg-primary data-[state=active]:text-white"
+            >
+              {currentHackathon ? currentHackathon.displayName : "Hacker"}
+            </TabsTrigger>
+          </TabsList>
+        </div>
+        <TabsContent value="Member" className="mt-4 w-full">
+          <MemberDashboard member={member.value} />
+        </TabsContent>
+        <TabsContent value="Hacker" className="mt-4 w-full">
+          <HackerDashboard hacker={hacker.value} />
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+  // }
+  /*
   if (member.value) {
     return (
       <div className="flex justify-center">

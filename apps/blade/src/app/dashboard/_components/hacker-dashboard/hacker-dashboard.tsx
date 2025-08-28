@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 import type { api as serverCall } from "~/trpc/server";
+import { HackerAppCard } from "~/app/_components/option-cards";
 import { api } from "~/trpc/server";
 import { HackerData } from "./hacker-data";
 import { HackerResumeButton } from "./hacker-resume-button";
 import { PastHackathonButton } from "./past-hackathons";
-import { HackerAppCard } from "~/app/_components/option-cards";
 
 export const metadata: Metadata = {
   title: "Hacker Dashboard",
@@ -22,16 +22,17 @@ export default async function HackerDashboard({
     api.hackathon.getPastHackathons(),
   ]);
 
-  if(!hacker) {
-    return(
-    <div className="flex flex-col items-center justify-center gap-y-6 font-semibold text-xl">
-      <p className="w-full max-w-xl text-2xl text-center">
-        Register for KnightHacks today!
-      </p>
-      <div className="flex flex-wrap justify-center gap-5">
-        <HackerAppCard />
+  if (!hacker) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-y-6 text-xl font-semibold">
+        <p className="w-full max-w-xl text-center text-2xl">
+          Register for KnightHacks today!
+        </p>
+        <div className="flex flex-wrap justify-center gap-5">
+          <HackerAppCard />
+        </div>
       </div>
-    </div>)
+    );
   }
 
   return (
