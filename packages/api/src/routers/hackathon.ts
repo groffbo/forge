@@ -2,7 +2,7 @@ import type { TRPCRouterRecord } from "@trpc/server";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-import { asc, count, desc, eq, getTableColumns, gt } from "@forge/db";
+import { asc, count, desc, eq, getTableColumns, gte } from "@forge/db";
 import { db } from "@forge/db/client";
 import {
   Hackathon,
@@ -19,10 +19,10 @@ export const hackathonRouter = {
   }),
 
   getCurrentHackathon: publicProcedure.query(async () => {
-    //Find next start date
+    // Find first hackathon that hasnt ended yet
     return await db.query.Hackathon.findFirst({
-      orderBy: asc(Hackathon.startDate),
-      where: gt(Hackathon.startDate, new Date())
+      orderBy: asc(Hackathon.endDate),
+      where: gte(Hackathon.endDate, new Date())
     })
   }),
 
