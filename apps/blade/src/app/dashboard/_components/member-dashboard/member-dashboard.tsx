@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 import type { api as serverCall } from "~/trpc/server";
+import { MemberAppCard } from "~/app/_components/option-cards";
 import { api } from "~/trpc/server";
 import { EventNumber } from "./event/event-number";
 import { EventShowcase } from "./event/event-showcase";
 import { MemberInfo } from "./info";
 import { Payment } from "./payment/payment-dues";
 import { Points } from "./points";
-import { MemberAppCard } from "~/app/_components/option-cards";
 
 export const metadata: Metadata = {
   title: "Member Dashboard",
@@ -20,15 +20,16 @@ export default async function MemberDashboard({
   member: Awaited<ReturnType<(typeof serverCall.member)["getMember"]>>;
 }) {
   if (!member) {
-    return(
-      <div className="flex flex-col items-center justify-center gap-y-6 font-semibold text-xl">
+    return (
+      <div className="flex flex-col items-center justify-center gap-y-6 text-xl font-semibold">
         <p className="w-full max-w-xl text-center">
           <div className="font-normal">
             Are you a UCF student?
-            <br className="mb-2"/>
-            Are you passionate about the world of tech and want to take your skills to the next level?
-            <br/>
-            <br/>
+            <br className="mb-2" />
+            Are you passionate about the world of tech and want to take your
+            skills to the next level?
+            <br />
+            <br />
           </div>
           Sign up to become a KnightHacks member today!
         </p>
@@ -36,7 +37,7 @@ export default async function MemberDashboard({
           <MemberAppCard />
         </div>
       </div>
-    )
+    );
     //redirect("/member/application");
   }
 

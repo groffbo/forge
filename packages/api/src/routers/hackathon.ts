@@ -22,8 +22,9 @@ export const hackathonRouter = {
     // Find first hackathon that hasnt ended yet
     return await db.query.Hackathon.findFirst({
       orderBy: (t, { asc }) => asc(t.endDate),
-      where: (t, { and, gte, lte }) => and(gte(t.endDate, new Date()), lte(t.applicationOpen, new Date()))
-    })
+      where: (t, { and, gte, lte }) =>
+        and(gte(t.endDate, new Date()), lte(t.applicationOpen, new Date())),
+    });
   }),
 
   getPreviousHacker: protectedProcedure.query(async ({ ctx }) => {
