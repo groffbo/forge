@@ -35,23 +35,23 @@ export async function UserInterface() {
     );
   }
 
-  if (member.value && hacker.value) {
+  //if (member.value && hacker.value) {
     return (
       <div className="flex justify-center">
-        <Tabs defaultValue="Member" className="max-w-8xl relative w-full">
+        <Tabs defaultValue={!member.value ? "Hacker" : "Member"} className="max-w-8xl relative w-full">
           <div className="flex justify-center pb-8">
             <TabsList className="grid w-full max-w-4xl grid-cols-2">
               <TabsTrigger
                 value="Member"
                 className="data-[state=active]:bg-primary data-[state=active]:text-white"
               >
-                Member
+                {`${!member.value ? "Become a " : ""}Member`}
               </TabsTrigger>
               <TabsTrigger
                 value="Hacker"
                 className="data-[state=active]:bg-primary data-[state=active]:text-white"
               >
-                Hacker
+                {`${!hacker.value ? "Become a " : ""}Hacker`}
               </TabsTrigger>
             </TabsList>
           </div>
@@ -64,8 +64,8 @@ export async function UserInterface() {
         </Tabs>
       </div>
     );
-  }
-
+ // }
+/*
   if (member.value) {
     return (
       <div className="flex justify-center">
@@ -83,4 +83,5 @@ export async function UserInterface() {
       </div>
     </div>
   );
+  */
 }
