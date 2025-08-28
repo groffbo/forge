@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import type { api as serverCall } from "~/trpc/server";
 import { api } from "~/trpc/server";
@@ -7,9 +6,6 @@ import { HackerData } from "./hacker-data";
 import { HackerResumeButton } from "./hacker-resume-button";
 import { PastHackathonButton } from "./past-hackathons";
 import { HackerAppCard } from "~/app/_components/option-cards";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@forge/ui/card";
-import { buttonVariants } from "@forge/ui/button";
-import { cn } from "@forge/ui";
 
 export const metadata: Metadata = {
   title: "Hacker Dashboard",
@@ -26,48 +22,16 @@ export default async function HackerDashboard({
     api.hackathon.getPastHackathons(),
   ]);
 
-  const currentHackathon = await api.hackathon.getCurrentHackathon()
-
-  if(!hacker)
-  {
-    return <div className="flex flex-col items-center justify-center gap-y-6 font-semibold text-xl">
-            <p className="w-full max-w-xl text-2xl text-center">
-              Register for KnightHacks today!
-            </p>
-            <div className="flex flex-wrap justify-center gap-5">
-              <HackerAppCard />
-              <div className="flex flex-col gap-2">
-              {
-                currentHackathon ?
-                  <>
-                  <div className="pb-1 mb-2 border-b-2 border-primary w-fit">Current Hackathon</div>
-                  <Card className="mb-8">
-                    <CardHeader>
-                      <CardTitle>{currentHackathon.displayName}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                    {
-                      currentHackathon.applicationDeadline.getTime() > Date.now() ?
-                      <>
-                      <div className="font-normal text-lg text-muted-foreground pb-2 text-left w-[345px]">{currentHackathon.startDate.toLocaleDateString() + " - " +currentHackathon.endDate.toLocaleDateString()}</div>
-                      <Link
-                        href={"/hacker/application/"+currentHackathon.name}
-                        className={cn(buttonVariants({ variant: "primary" }), "w-full")}
-                      >
-                        Register Now
-                      </Link>
-                      </>
-                      :
-                      <div/>
-                    }
-                    </CardContent>
-                  </Card>
-                  </>
-                : <div/>
-              }
-              </div>
-            </div>
-          </div>
+  if(!hacker) {
+    return(
+    <div className="flex flex-col items-center justify-center gap-y-6 font-semibold text-xl">
+      <p className="w-full max-w-xl text-2xl text-center">
+        Register for KnightHacks today!
+      </p>
+      <div className="flex flex-wrap justify-center gap-5">
+        <HackerAppCard />
+      </div>
+    </div>)
   }
 
   return (

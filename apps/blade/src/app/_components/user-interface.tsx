@@ -11,6 +11,8 @@ export async function UserInterface() {
     api.hacker.getHacker({}),
   ]);
 
+  const currentHackathon = await api.hackathon.getCurrentHackathon()
+
   if (member.status === "rejected" || hacker.status === "rejected") {
     return (
       <div className="mt-10 flex flex-col items-center justify-center gap-y-6 font-bold">
@@ -35,6 +37,16 @@ export async function UserInterface() {
     );
   }
 
+  if (member.value && (!currentHackathon)) {
+    return (
+      <div className="flex justify-center">
+        <div className="max-w-8xl w-full">
+          <MemberDashboard member={member.value} />
+        </div>
+      </div>
+    );
+  }
+
   //if (member.value && hacker.value) {
     return (
       <div className="flex justify-center">
@@ -51,7 +63,7 @@ export async function UserInterface() {
                 value="Hacker"
                 className="data-[state=active]:bg-primary data-[state=active]:text-white"
               >
-                {`${!hacker.value ? "Become a " : ""}Hacker`}
+                {currentHackathon ? currentHackathon.displayName : "Hacker"}
               </TabsTrigger>
             </TabsList>
           </div>

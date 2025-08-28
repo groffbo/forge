@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
 
 import type { api as serverCall } from "~/trpc/server";
 import { api } from "~/trpc/server";

@@ -12,6 +12,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@forge/ui/card";
+import { api } from "~/trpc/server";
 
 export function MemberAppCard() {
   return (
@@ -53,7 +54,9 @@ export function MemberAppCard() {
   );
 }
 
-export function HackerAppCard() {
+export async function HackerAppCard() {
+  const currentHackathon = await api.hackathon.getCurrentHackathon()
+  
   return (
     <Card className="flex flex-col px-4 hover:border-primary">
       <CardHeader className="text-center">
@@ -82,14 +85,24 @@ export function HackerAppCard() {
         </ul>
       </CardContent>
       <CardFooter>
-        <Link
-          href={PERMANENT_DISCORD_INVITE}
-          className="w-full"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button className="w-full">Contact an Organizer</Button>
-        </Link>
+        {
+          currentHackathon ? 
+            <Link
+              href={"/hacker/application/"+currentHackathon.name}
+              className={cn(buttonVariants({ variant: "primary" }), "w-full")}
+            >
+              Register Now
+            </Link>
+            :
+            <Link
+              href={PERMANENT_DISCORD_INVITE}
+              className="w-full"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="w-full">Contact an Organizer</Button>
+            </Link>
+        }
       </CardFooter>
     </Card>
   );
