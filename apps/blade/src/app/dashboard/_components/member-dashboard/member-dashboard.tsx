@@ -8,6 +8,7 @@ import { EventShowcase } from "./event/event-showcase";
 import { MemberInfo } from "./info";
 import { Payment } from "./payment/payment-dues";
 import { Points } from "./points";
+import { MemberAppCard } from "~/app/_components/option-cards";
 
 export const metadata: Metadata = {
   title: "Member Dashboard",
@@ -20,7 +21,19 @@ export default async function MemberDashboard({
   member: Awaited<ReturnType<(typeof serverCall.member)["getMember"]>>;
 }) {
   if (!member) {
-    redirect("/member/application");
+    return(
+      <div className="flex flex-col items-center justify-center gap-y-6 font-semibold text-xl">
+        <p className="w-full max-w-xl text-center">
+          Are you a UCF student?<br/><br/>
+          Are you passionate about the world of tech and want to take your skills to the next level?<br/><br/>
+          Sign up to become a KnightHacks member today!
+        </p>
+        <div className="flex flex-wrap justify-center gap-5">
+          <MemberAppCard />
+        </div>
+      </div>
+    )
+    //redirect("/member/application");
   }
 
   const [events, dues] = await Promise.allSettled([
