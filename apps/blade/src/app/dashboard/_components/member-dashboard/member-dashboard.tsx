@@ -23,8 +23,13 @@ export default async function MemberDashboard({
     return(
       <div className="flex flex-col items-center justify-center gap-y-6 font-semibold text-xl">
         <p className="w-full max-w-xl text-center">
-          Are you a UCF student?<br/><br/>
-          Are you passionate about the world of tech and want to take your skills to the next level?<br/><br/>
+          <div className="font-normal">
+            Are you a UCF student?
+            <br className="mb-2"/>
+            Are you passionate about the world of tech and want to take your skills to the next level?
+            <br/>
+            <br/>
+          </div>
           Sign up to become a KnightHacks member today!
         </p>
         <div className="flex flex-wrap justify-center gap-5">
