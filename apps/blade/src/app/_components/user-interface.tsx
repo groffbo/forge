@@ -31,7 +31,9 @@ export async function UserInterface() {
         </p>
         <div className="flex flex-wrap justify-center gap-5">
           <MemberAppCard />
-          <HackerAppCard />
+          {currentHackathon && (
+            <HackerAppCard hackathonName={currentHackathon.name} />
+          )}
         </div>
       </div>
     );
@@ -47,7 +49,6 @@ export async function UserInterface() {
     );
   }
 
-  //if (member.value && hacker.value) {
   return (
     <div className="flex justify-center">
       <Tabs
@@ -79,24 +80,4 @@ export async function UserInterface() {
       </Tabs>
     </div>
   );
-  // }
-  /*
-  if (member.value) {
-    return (
-      <div className="flex justify-center">
-        <div className="max-w-8xl w-full">
-          <MemberDashboard member={member.value} />
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="flex justify-center">
-      <div className="max-w-8xl w-full">
-        <HackerDashboard hacker={hacker.value} />
-      </div>
-    </div>
-  );
-  */
 }

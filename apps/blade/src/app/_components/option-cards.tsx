@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { Code, Swords } from "lucide-react";
 
-import { PERMANENT_DISCORD_INVITE } from "@forge/consts/knight-hacks";
 import { cn } from "@forge/ui";
-import { Button, buttonVariants } from "@forge/ui/button";
+import { buttonVariants } from "@forge/ui/button";
 import {
   Card,
   CardContent,
@@ -12,8 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@forge/ui/card";
-
-import { api } from "~/trpc/server";
 
 export function MemberAppCard() {
   return (
@@ -55,9 +52,7 @@ export function MemberAppCard() {
   );
 }
 
-export async function HackerAppCard() {
-  const currentHackathon = await api.hackathon.getCurrentHackathon();
-
+export function HackerAppCard({ hackathonName }: { hackathonName: string }) {
   return (
     <Card className="flex flex-col px-4 hover:border-primary">
       <CardHeader className="text-center">
@@ -86,23 +81,12 @@ export async function HackerAppCard() {
         </ul>
       </CardContent>
       <CardFooter>
-        {currentHackathon ? (
-          <Link
-            href={"/hacker/application/" + currentHackathon.name}
-            className={cn(buttonVariants({ variant: "primary" }), "w-full")}
-          >
-            Register Now
-          </Link>
-        ) : (
-          <Link
-            href={PERMANENT_DISCORD_INVITE}
-            className="w-full"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button className="w-full">Contact an Organizer</Button>
-          </Link>
-        )}
+        <Link
+          href={"/hacker/application/" + hackathonName}
+          className={cn(buttonVariants({ variant: "primary" }), "w-full")}
+        >
+          Register Now
+        </Link>
       </CardFooter>
     </Card>
   );

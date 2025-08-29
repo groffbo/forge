@@ -22,6 +22,8 @@ export default async function HackerDashboard({
     api.hackathon.getPastHackathons(),
   ]);
 
+  const currentHackathon = await api.hackathon.getCurrentHackathon();
+
   if (!hacker) {
     return (
       <div className="flex flex-col items-center justify-center gap-y-6 text-xl font-semibold">
@@ -29,7 +31,12 @@ export default async function HackerDashboard({
           Register for KnightHacks today!
         </p>
         <div className="flex flex-wrap justify-center gap-5">
-          <HackerAppCard />
+          {
+            //if there is no current hackathon then this page is never rendered anyway
+            currentHackathon && (
+              <HackerAppCard hackathonName={currentHackathon.name} />
+            )
+          }
         </div>
       </div>
     );
