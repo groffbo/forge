@@ -38,7 +38,6 @@ export default async function MemberDashboard({
         </div>
       </div>
     );
-    //redirect("/member/application");
   }
 
   const [events, dues] = await Promise.allSettled([
