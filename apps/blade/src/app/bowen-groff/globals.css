@@ -1,0 +1,39 @@
+.windows-base {
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid gray;
+    border-bottom: 2px solid gray;
+}
+
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: silver;
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+}
+
+.startbutton {
+    height: 1.6rem;
+    aspect-ratio: auto;
+    image-rendering: pixelated;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+.clock {
+    align-items: right;
+
+    padding: 0 8px;
+    margin-right: 50px;
+}
+
+.main-page {
+    size: 5rem
+}

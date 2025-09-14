@@ -1,35 +1,46 @@
-import grass from './textures/grass-block.webp';
-import dirt from './textures/dirt.webp';
-import stone from './textures/stone.webp';
-import deepslate from './textures/deepslate.webp';
-import bedrock from './textures/bedrock.webp';
+"use client";
 
-export default function MinecraftScroll() {
+import { useState, useEffect, useCallback, useMemo } from 'react';
 
-  const sectionStyle = (texture: string) => ({
-    backgroundImage: `url(${texture})`,
-    backgroundRepeat: 'repeat',
-    backgroundSize: '64px 64px',
-    imageRendering: 'pixelated' as const,
-  });
+import './globals.css';
+import localFont from "next/font/local";
+import startButtonIcon from './assets/start-button.png';
+const windows95 = localFont({
+  src: './assets/Windows Regular.ttf',
+  display: "swap",
+  fallback: ["Tahoma", "sans-serif"],
+})
 
-  return (
-    <div>
-    <div className="w-full min-h-[50vh] bg-[#87CEEB] relative overflow-x-hidden"></div>
-      <section style={sectionStyle(grass.src)} className="h-16 flex items-center justify-center">
-      </section>
+const Clock = () => {
+    const [date, setDate] = useState(new Date());
+    useEffect(() => {
+        const timerID = setInterval(() => tick(), 1000);
+        return () => clearInterval(timerID);
+    }, []);
 
-      <section style={sectionStyle(dirt.src)} className="h-[100vh] flex items-center justify-center">
-      </section>
+    const tick = useCallback(() => {
+        setDate(new Date());
+    }, []);
 
-      <section style={sectionStyle(stone.src)} className="h-[100vh] flex items-center justify-center">
-      </section>
+    const options: Intl.DateTimeFormatOptions = { hour: "2-digit", minute: "2-digit", hour12: false };
+    const timeString = useMemo(() => date.toLocaleTimeString("en-GB", options), [date]);
 
-      <section style={sectionStyle(deepslate.src)} className="h-[100vh] flex items-center justify-center">   
-      </section>
+    return <span>{timeString}</span>;
+};
 
-      <section style={sectionStyle(bedrock.src)} className="h-16 flex items-center justify-center">
-      </section>
+function Page() {
+
+return (
+  <div className={`${windows95.className}`}>
+    <div className="w-screen h-screen bg-[#008080] flex flex-wrap content-start p-4 gap-8">
+      <div className="windows-base taskbar">
+        <button ><img className="startbutton" src={startButtonIcon.src}></img></button>
+        <div className="spacer"></div>
+        <div className="windows-base clock">{Clock()}</div>
       </div>
+    </div>
+  </div>
   );
 }
+
+export default Page;
