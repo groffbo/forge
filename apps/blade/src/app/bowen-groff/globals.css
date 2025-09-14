@@ -1,8 +1,15 @@
-.windows-base {
+.convex {
     border-top: 2px solid #fff;
     border-left: 2px solid #fff;
     border-right: 2px solid gray;
     border-bottom: 2px solid gray;
+}
+
+.concave {
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    border-left: 2px solid gray;
+    border-top: 2px solid gray;
 }
 
 .taskbar {
@@ -32,8 +39,27 @@
 
     padding: 0 8px;
     margin-right: 50px;
+    color: black;
 }
 
 .main-page {
     size: 5rem
 }
+
+.icon {
+    display: flex;
+    width: 80px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-column {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+
