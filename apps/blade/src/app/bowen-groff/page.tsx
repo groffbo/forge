@@ -12,6 +12,9 @@ import computerIcon from './assets/computer.ico';
 import textFileIcon from './assets/textfile.ico';
 import photo from './assets/me.jpg';
 import crunch from './assets/crunchcat.gif';
+import resume from './assets/bowen-groff-resume.png';
+import github from './assets/github.ico';
+import linkedin from './assets/linkedin.ico'
 
 interface AppWindow { id: string; 
                       title: string; 
@@ -67,6 +70,16 @@ return (
         <button className="icon" onClick={() => toggleWindow("resume")}><img src={textFileIcon.src}></img>
           Resume.txt
         </button>
+        <button className="icon"
+          onClick={() => window.open("https://github.com/groffbo", "_blank")}
+          ><img src={github.src}></img>
+          GitHub
+        </button>
+        <button className="icon"
+          onClick={() => window.open("https://www.linkedin.com/in/bowengroff/", "_blank")}
+        ><img src={linkedin.src}></img>
+          Linkedin
+        </button>
       </div>
       <div className="convex taskbar">
         <button className="icon"><img className="startbutton" src={startButtonIcon.src}></img>
@@ -99,7 +112,7 @@ return (
                   <img className="convex image" src={photo.src}/>
                   <span className="text mt-8">
                     My name is Bowen Groff. This is my second year at UCF.
-                    I am a Computer Engineering student with an interest in anything software. 
+                    I am a Computer Engineering student with an interest in anything tech. 
                     I have worked on...
                     <ul className="list-disc pl-6 ">
                       <li>Kernel Module/Driver Development</li>
@@ -109,18 +122,13 @@ return (
                     </ul>
                     <img className="h-12" src={crunch.src}></img>
                     <div className="absolute ml-5 left-0 bottom-0">
-                      Try double clicking stuff! And feel free to close this window :-)
+                      Try double clicking stuff! And feel free to close this window :-) (you can reopen with taskbar)
                     </div>
                   </span>
                 </div>
               </>
             ) : w.id === "resume" ? (
-              <iframe src="assets/bowen-groff-resume.pdf" 
-                      title="Resume"
-                      width="100%"
-                      height="100%">
-              </iframe>
-
+              <img src={resume.src}></img>
             ) : (
               <p></p>
             )}
