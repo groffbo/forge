@@ -21,13 +21,23 @@
     background: silver;
     display: flex;
     align-items: center;
-    padding: 0 4px;
 }
 
 .startbutton {
     height: 1.6rem;
     aspect-ratio: auto;
     image-rendering: pixelated;
+}
+
+.startbutton:hover {
+    filter: brightness(85%);
+}
+
+.startbutton:active {
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    border-left: 2px solid gray;
+    border-top: 2px solid gray;
 }
 
 .spacer {
@@ -56,10 +66,107 @@
     text-align: center;
 }
 
+.icon:active {
+    border: 1px dotted white;
+    image-rendering: pixelated;
+    padding: 2px;
+}
+
 .icon-column {
     display: flex;
     flex-direction: column;
     gap: 3rem;
 }
 
+.tab {
+    padding-right: 20px;
+    padding-left: 20px;
+    color: black;
+}
+
+.tab:hover {
+    filter: brightness(90%);
+}
+
+.tab:active {
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    border-left: 2px solid gray;
+    border-top: 2px solid gray;
+}
+
+.image {
+    max-height: 300px;
+    max-width: 300px;
+    display: flex;
+    align-items: flex-start;
+    margin: 12px 12px 12px 12px;
+    image-rendering: pixelated;
+}
+
+.window {
+    background: silver;
+    width: 600px;
+    height: 400px;
+    position: relative;
+    overflow: auto;
+}
+
+.window-header {
+    height: 25px;
+    background: navy;
+    color: white;
+    padding-left: 5px;
+    position: sticky;
+    top: 0;
+}
+
+.window-body {
+    background: white;
+    flex: 1;
+    max-width: 600px;
+    min-height: 370px;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+    border-bottom: 1px solid rgb(214, 204, 204);
+    border-right: 1px solid rgb(199, 190, 190);
+    outline: 2px solid white;
+    padding: 8px;
+    color: black;
+}
+
+.text {
+    flex: 1;
+    word-break: break-word;
+    color: black;
+}
+
+.window-header-button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 20px;
+    height: 75%;
+
+    background: silver;
+    color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.window-header-button:active {
+    filter: brightness(85%);
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    border-left: 2px solid gray;
+    border-top: 2px solid gray;
+}
 
