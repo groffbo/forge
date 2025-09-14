@@ -1,3 +1,11 @@
+/**
+ * File: window.tsx
+ * Project: Bowen Groff Dev Team Submission
+ * Author: Bowen Groff
+ * Date: September 14, 2025
+ * Description: Custom component for rendering a window to the screen. Includes handling for dragging
+ *              the window by the navy header bar.
+ */
 import { useEffect, useRef, useState } from "react";
 
 interface WindowProps {

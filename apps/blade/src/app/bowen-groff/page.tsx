@@ -1,3 +1,11 @@
+/**
+ * File: page.tsx
+ * Project: Bowen Groff Dev Team Submission
+ * Author: Bowen Groff
+ * Date: September 14, 2025
+ * Description: This file contains setting up the desktop, the taskbar, the icons, and handling the window
+ *              component array. 
+ */
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -58,11 +66,13 @@ const Clock = () => {
 };
 
 function Page() {
+  // Tabs for windows in taskbar
   const [windows, setWindows] = useState<AppWindow[]>([
     { id: "welcome", title: "Hello World", isOpen: true },
     { id: "resume", title: "Resume.txt", isOpen: false },
   ]);
 
+  // Open or close a window
   const toggleWindow = (id: string) => {
     setWindows((prev) =>
       prev.map((w) => (w.id === id ? { ...w, isOpen: !w.isOpen } : w)),
@@ -102,6 +112,7 @@ function Page() {
             Linkedin
           </button>
         </div>
+
         <div className="convex taskbar">
           <button className="icon">
             <Image
